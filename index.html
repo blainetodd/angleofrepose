@@ -1,186 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Angle of Repose</title>
 
 <style>
-/* ---------- Global ---------- */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-body {
-  background-image: url("Trailer.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-/* dark overlay for readability */
-.bg-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  z-index: -1;
-}
-
-/* ---------- Layout ---------- */
-:root {
-  --pad: 28px;
-  --lyrics-width: 380px;
-}
-
-.content {
-  padding: var(--pad);
-  max-width: 720px;
-}
-
-/* keep left content from sitting under lyrics */
-@media (min-width: 900px){
-  .content {
-    margin-right: calc(var(--lyrics-width) + (var(--pad) * 2));
+  :root {
+    --pad: 28px;
+    --lyrics-width: 380px;
   }
-}
 
-/* ---------- SoundCloud ---------- */
-iframe {
-  border-radius: 12px;
-}
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
 
-/* ---------- Info text ---------- */
-.info {
-  margin-top: 20px;
-  font-size: 0.85rem;
-  line-height: 1.45;
-  color: rgba(255,255,255,0.85);
-}
+  body {
+    background-image: url("Trailer.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: rgba(255,255,255,0.9);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
 
-/* ---------- Lyrics Panel ---------- */
-.lyrics-panel {
-  position: fixed;
-  top: var(--pad);
-  right: var(--pad);
-  width: var(--lyrics-width);
-  max-height: calc(100vh - (var(--pad) * 2));
-  overflow-y: auto;
+  /* LEFT COLUMN */
+  .content {
+    padding: var(--pad);
+    max-width: 720px;
+  }
 
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 14px;
-
-  padding: 18px;
-  z-index: 10;
-}
-
-.lyrics-panel h3 {
-  margin: 0 0 12px 0;
-  font-size: 0.8rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
-
-.lyrics-panel pre {
-  margin: 0;
-  white-space: pre-wrap;
-  font-size: 0.82rem;
-  line-height: 1.45;
-  opacity: 0.95;
-}
-
-/* ---------- Mobile ---------- */
-@media (max-width: 899px){
+  /* RIGHT LYRICS PANEL */
   .lyrics-panel {
-    position: static;
-    width: auto;
-    max-height: none;
-    margin: 16px var(--pad);
+    position: fixed;
+    top: var(--pad);
+    right: var(--pad);
+    width: var(--lyrics-width);
+    max-height: calc(100vh - (var(--pad) * 2));
+    overflow-y: auto;
+
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 18px;
+
+    z-index: 10;
   }
 
-  .content {
-    margin-right: 0;
+  .lyrics-panel h3 {
+    margin: 0 0 12px 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.85;
   }
-}
+
+  .lyrics-panel pre {
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  /* Make space so left content doesn't hide under lyrics */
+  @media (min-width: 900px) {
+    .content {
+      margin-right: calc(var(--lyrics-width) + (var(--pad) * 2));
+    }
+  }
+
+  /* Mobile fallback */
+  @media (max-width: 899px) {
+    .lyrics-panel {
+      position: static;
+      width: auto;
+      max-height: none;
+      margin: 16px;
+    }
+    .content {
+      margin-right: 0;
+    }
+  }
 </style>
 </head>
 
 <body>
 
-<div class="bg-overlay"></div>
+  <!-- LEFT CONTENT -->
+  <div class="content">
 
-<div class="content">
-
-<iframe
-  width="100%"
-  height="450"
-  allow="autoplay"
-  scrolling="no"
-  frameborder="no"
-  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2061937893%3Fsecret_token%3Ds-1GXZchNMpE0&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true">
-</iframe>
-
-<div class="info">
-<b>Info</b><br><br>
-Unmastered<br><br>
-All songs by Blaine Todd except “Scoots,” written by Blaine Todd and Scott Siler and performed by Scott.<br><br>
-Self-recorded 2024–2025 at Home, Mansard House, and Mills College<br><br>
-Blaine Todd: guitars, banjo, mandolin, bass, voice<br>
-Scott Siler: drums, keys, vibraphone<br>
-Henry Birdsey: pedal steel<br>
-Adam Hirsch: sax<br>
-Andrew Weathers: Rhodes<br>
-A.L. Lee: fiddle
-</div>
-
-</div>
-
-<div class="lyrics-panel">
-<h3>Lyrics</h3>
-<pre>
-SOMEDAY
-
-I wait around for death
-With a dram of dream wine
-Wait for the rain to put food on the vine
-I wait for salvation to send me a sign
-Wait for the clock to return my time
-And, man, I wait for the money that never does come
-I wait on the moon and wait on the sun
-As I kept waiting for life to begin
-I found myself waiting right past the end
-
-You think that someday it’ll all fall in line
-It’s bound to get better if you give it time
-Wait to be good wait to treat people kind
-To fix what needs fixing and make up your mind
-Confusion and panic won’t ever let you go
-The grass don’t grow greener just watching it grow
-If there’s anything left for me to impart
-Someday ain’t a good way for your life to start
-
-TROUBLE
-
-He said if you have to go
-Be sure and fly low
-The interstate is full of highway patrol
-...
-
-GOODBYE
-
-Goodbye till I
-Do good by you
-Goodbye till I do good by you
-</pre>
-</div>
-
-</body>
-</html>
+    <iframe
+      allow="autoplay"
+      frameborder="no"
+      height="450"
+      scrolling="no"
+      width="100%"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2061937893%3Fsecret_token%3Ds-1GXZchNMpE0&auto_play=fa
